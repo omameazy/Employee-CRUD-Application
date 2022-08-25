@@ -1,0 +1,160 @@
+//JSON INPUT EXAMPLES
+//User SignUp Request
+//@PostMapping("/signup")
+//PostMan URL: http://localhost:8080/api/v1/auth/signup
+//Example
+{
+    "name":"FirstName LastName",
+    "email":"example@gmail.com",
+    "phoneNumber":"08000000000",
+    "password":"password123",
+    "pictureURL":"http://localhost/test/images/profile/pic1.jpg",
+    "roles":["user", "admin", "superadmin"]
+}
+
+//User Signin Request
+//@PostMapping("/signin")
+//PostMan URL:http://localhost:8080/api/v1/auth/signIn
+//Example
+{
+    "email": "example@gmail.com",
+    "password": "password123"
+}
+
+//Employee CRUD Manipulation
+//PostMan URL: http://localhost:8080/api/v1/employee/save
+//Example: Save Employee
+
+{
+    "employeeNumber": "S0123",
+    "surname": "Surname",
+    "firstName": "FirstName",
+    "middleName": "MiddleName",
+    "gender": "male",
+    "phoneNumber": "08000000000",
+    "email": "example@yahoo.com",
+    "country": "Nigeria",
+    "state": "Abuja",
+    "lga": "Nil",
+    "streetName": "Asokoro",
+    "houseNumber": "5",
+    "zipCode": "950101",
+    "pictureURL": "http://localhost/.../images/pic1.jpg",
+    "dateOfBirth": "28/10/2021",
+    "maritalStatus": "Single",
+    "workHistory": [
+        {
+            "organisation": "NITDA",
+            "level": "10",
+            "step": "4",
+            "position": "Website Administrator",
+            "department": "IT",
+            "qualification": "MSc.(Computer Science)",
+            "experience": "7 years",
+            "workHours": "8",
+            "overTime": "2",
+            "extraDays": "2",
+            "startDate": "01/01/2015",
+            "endDate": "--/--/--"
+        }
+    ],
+    "salary": [
+        {
+            "basicSalary": "100000.00",
+            "allowances": "50000.00",
+            "pensionSavings": "10000.00",
+            "tax": "5000.00",
+            "healthInsurance": "5000.00",
+            "cooperativeDeduction": "10000.00",
+            "otherDeductions": "0.00"
+        }
+    ]
+}
+
+
+
+
+//Response
+
+{
+    "success": true,
+    "message": "Saving employee FirstName Surname",
+    "data": {
+        "id": 12,
+        "employeeNumber": "S0123",
+        "surname": "Surname",
+        "firstName": "FirstName",
+        "middleName": "MiddleName",
+        "gender": "male",
+        "phoneNumber": "08000000000",
+        "email": "example@yahoo.com",
+        "country": "Nigeria",
+        "state": "Abuja",
+        "lga": "Nil",
+        "streetName": "Asokoro",
+        "houseNumber": "5",
+        "zipCode": "950101",
+        "picture": "http://localhost/.../images/pic1.jpg",
+        "dateOfBirth": "28/10/2021",
+        "maritalStatus": "Single",
+        "workHistory": [
+            {
+                "id": 10,
+                "employeeNumber": "S0123",
+                "organisation": "NITDA",
+                "level": "10",
+                "step": "4",
+                "position": "Website Administrator",
+                "department": "IT",
+                "qualification": "MSc.(Computer Science)",
+                "experience": "7 years",
+                "workHours": "8",
+                "overTime": "2",
+                "extraDays": "2",
+                "startDate": "01/01/2015",
+                "endDate": "--/--/--",
+                "status": "Good",
+                "remark": ""
+            }
+        ],
+        "salary": [
+            {
+                "id": 11,
+                "employeeNumber": "S0123",
+                "basicSalary": "100000.0",
+                "allowances": "50000.0",
+                "pensionSavings": "10000.0",
+                "tax": "5000.0",
+                "healthInsurance": "5000.0",
+                "cooperativeDeduction": "10000.0",
+                "otherDeductions": "0.0",
+                "grossPay": "150000.0",
+                "netPay": "120000.0",
+                "status": "Good!",
+                "remark": ""
+            }
+        ],
+        "createdAt": null,
+        "updatedAt": null,
+        "status": null,
+        "remark": null
+    }
+}
+
+
+//User Access to Other Website Pages Based on Roles
+//@GetMapping("/index")
+//@GetMapping("/user")
+//@GetMapping("/admin")
+//@GetMapping("/superadmin")
+//PostMan URL: 
+//http://localhost:8080/api/v1/access/index
+//http://localhost:8080/api/v1/access/user
+//http://localhost:8080/api/v1/access/admin
+//http://localhost:8080/api/v1/access/superadmin
+
+//Responses:
+Public Content - This is the landing page of this website!
+User Level Access Content.
+Admin Level Access Content.
+Super Admin Level Access Content.
