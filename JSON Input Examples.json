@@ -1,0 +1,268 @@
+
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+INSERT INTO roles(name) VALUES('ROLE_SUPER_ADMIN');
+//JSON INPUT EXAMPLES
+//User SignUp Request
+//@PostMapping("/signup")
+//PostMan URL: http://localhost:8080/api/v1/auth/signup
+//Example
+{
+    "name": "Isaiah Omame",
+    "email": "omameazy@gmail.com",
+    "phoneNumber": "07000000000",
+    "password": "omame123",
+    "pictureURL": "http://localhost/.../images/pic1.jpg",
+    "roles": [
+        "user",
+        "admin",
+        "superadmin"
+    ]
+}
+//Or
+{
+    "name": "Nandom Jide",
+    "email": "nandom@gmail.com",
+    "phoneNumber": "07054515274",
+    "password": "nandom123",
+    "pictureURL": "http://localhost/.../images/pic1.jpg",
+    "roles": [
+        "user",
+        "admin"
+    ]
+}
+//User SignUp Response
+{
+    "success": true,
+    "message": "User registered successfully",
+    "data": {
+        "id": 1,
+        "username": "omameazy@gmail.com",
+        "email": "omameazy@gmail.com",
+        "password": "$2a$10$HwF17vRLzxkZBHbiRXhy1eSujirm6JRYEr7yJAU93Usqimb5mPTg.",
+        "passwordSalt": null,
+        "name": "Isaiah Omame",
+        "phoneNumber": "07060812940",
+        "picture": "http://localhost/.../images/pic1.jpg",
+        "lastLogin": null,
+        "status": "Date of creation: 22/08/2022 at 02:42:58 PM",
+        "active": null,
+        "roles": [
+            {
+                "id": 2,
+                "name": "ROLE_ADMIN"
+            },
+            {
+                "id": 3,
+                "name": "ROLE_SUPER_ADMIN"
+            },
+            {
+                "id": 1,
+                "name": "ROLE_USER"
+            }
+        ]
+    }
+}
+//OR
+{
+    "success": true,
+    "message": "User registered successfully",
+    "data": {
+        "id": 2,
+        "username": "nandom@gmail.com",
+        "email": "nandom@gmail.com",
+        "password": "$2a$10$vxkoc4tEB0EGfZt48g78R.MpdduydnEW.vcFlCg7Brzp6.vYi6irK",
+        "passwordSalt": null,
+        "name": "Nandom Jide",
+        "phoneNumber": "07054515274",
+        "picture": "http://localhost/.../images/pic1.jpg",
+        "lastLogin": null,
+        "status": "Date of creation: 22/08/2022 at 02:51:42 PM",
+        "active": null,
+        "roles": [
+            {
+                "id": 2,
+                "name": "ROLE_ADMIN"
+            },
+            {
+                "id": 1,
+                "name": "ROLE_USER"
+            }
+        ]
+    }
+}
+//User Signin Request
+//@PostMapping("/signin")
+//PostMan URL:http://localhost:8080/api/v1/auth/signIn
+//Example
+{
+    "email": "nandom@gmail.com",
+    "password": "nandom123"
+}
+//User Signin Reponse
+{
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW5kb21AZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJpYXQiOjE2NjEyMTU4ODAsImV4cCI6MTY2MTMwMjI4MH0.bLDmumWhsVezJLQsN5UqU_zAvwhDKAT7XmpeOO0TMju4QWccgZuSWa_iPNOHre4pqlCvLiP77o8d0heLGDmOoA",
+    "type": "Bearer",
+    "id": 2,
+    "username": "nandom@gmail.com",
+    "email": "nandom@gmail.com",
+    "roles": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+    ],
+    "tokenType": "Bearer",
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW5kb21AZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJpYXQiOjE2NjEyMTU4ODAsImV4cCI6MTY2MTMwMjI4MH0.bLDmumWhsVezJLQsN5UqU_zAvwhDKAT7XmpeOO0TMju4QWccgZuSWa_iPNOHre4pqlCvLiP77o8d0heLGDmOoA"
+}
+//Or
+{
+    "email": "isaiah@gmail.com",
+    "password": "isaiah@gmail.com"
+}
+//Response
+{
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpc2FpYWhAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9TVVBFUl9BRE1JTiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjYxMjE3NTYyLCJleHAiOjE2NjEzMDM5NjJ9.r34-eJfYCFn2AeBwsB8TFRS9SE3bKGEsz_jMFpm6pidBCrAveStA2rYAsYUB5HljnjOQ7zFfdSfxObSpbbCiZA",
+    "type": "Bearer",
+    "id": 4,
+    "username": "isaiah@gmail.com",
+    "email": "isaiah@gmail.com",
+    "roles": [
+        "ROLE_USER",
+        "ROLE_SUPER_ADMIN",
+        "ROLE_ADMIN"
+    ],
+    "tokenType": "Bearer",
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpc2FpYWhAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9TVVBFUl9BRE1JTiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjYxMjE3NTYyLCJleHAiOjE2NjEzMDM5NjJ9.r34-eJfYCFn2AeBwsB8TFRS9SE3bKGEsz_jMFpm6pidBCrAveStA2rYAsYUB5HljnjOQ7zFfdSfxObSpbbCiZA"
+}
+//Employee CRUD Manipulation
+//PostMan URL: http://localhost:8080/api/v1/employee/save
+//Example: Save Employee
+{
+    "employeeNumber": "A0123",
+    "surname": "Omame",
+    "firstName": "Isaiah",
+    "middleName": "Michael",
+    "gender": "male",
+    "phoneNumber": "07060812940",
+    "email": "omameazy@yahoo.com",
+    "country": "Nigeria",
+    "state": "Nasarawa",
+    "lga": "Doma",
+    "streetName": "Catholic Church Street",
+    "houseNumber": "5",
+    "zipCode": "950101",
+    "pictureURL": "http://localhost/.../images/pic1.jpg",
+    "dateOfBirth": "28/10/2021",
+    "maritalStatus": "Single",
+    "workHistory": [
+        {
+            "organisation": "Federal University of Lafia",
+            "level": "10",
+            "step": "4",
+            "position": "Assistant Librarian",
+            "department": "Library and Information Science",
+            "qualification": "MSc.(LIT)",
+            "experience": "7 years",
+            "workHours": "8",
+            "overTime": "2",
+            "extraDays": "2",
+            "startDate": "01/01/2015",
+            "endDate": "--/--/--"
+        }
+    ],
+    "salary": [
+        {
+            "basicSalary": "100000.00",
+            "allowances": "50000.00",
+            "pensionSavings": "10000.00",
+            "tax": "5000.00",
+            "healthInsurance": "5000.00",
+            "cooperativeDeduction": "10000.00",
+            "otherDeductions": "0.00"
+        }
+    ]
+}
+
+
+//Response
+{
+    "success": true,
+    "message": "Saving employee Isaiah Omame",
+    "data": {
+        "id": 9,
+        "employeeNumber": "A0123",
+        "surname": "Omame",
+        "firstName": "Isaiah",
+        "middleName": "Michael",
+        "gender": "male",
+        "phoneNumber": "07060812940",
+        "email": "omameazy@yahoo.com",
+        "country": "Nigeria",
+        "state": "Nasarawa",
+        "lga": "Doma",
+        "streetName": "Catholic Church Street",
+        "houseNumber": "5",
+        "zipCode": "950101",
+        "picture": "http://localhost/.../images/pic1.jpg",
+        "dateOfBirth": "28/10/2021",
+        "maritalStatus": "Single",
+        "workHistory": [
+            {
+                "id": 7,
+                "employeeNumber": "A0123",
+                "organisation": "Federal University of Lafia",
+                "level": "10",
+                "step": "4",
+                "position": "Assistant Librarian",
+                "department": "Library and Information Science",
+                "qualification": "MSc.(LIT)",
+                "experience": "7 years",
+                "workHours": "8",
+                "overTime": "2",
+                "extraDays": "2",
+                "startDate": "01/01/2015",
+                "endDate": "--/--/--",
+                "status": "Good",
+                "remark": ""
+            }
+        ],
+        "salary": [
+            {
+                "id": 8,
+                "employeeNumber": "A0123",
+                "basicSalary": "100000.0",
+                "allowances": "50000.0",
+                "pensionSavings": "10000.0",
+                "tax": "5000.0",
+                "healthInsurance": "5000.0",
+                "cooperativeDeduction": "10000.0",
+                "otherDeductions": "0.0",
+                "grossPay": "150000.0",
+                "netPay": "120000.0",
+                "status": "Good!",
+                "remark": ""
+            }
+        ],
+        "createdAt": null,
+        "updatedAt": null,
+        "status": null,
+        "remark": null
+    }
+}
+
+
+
+//User Access to Other Website Pages Based on Roles
+//@GetMapping("/index")
+//@GetMapping("/user")
+//@GetMapping("/admin")
+//@GetMapping("/superadmin")
+//PostMan URL: 
+//http://localhost:8080/api/v1/access/index
+//http://localhost:8080/api/v1/access/user
+//http://localhost:8080/api/v1/access/admin
+//http://localhost:8080/api/v1/access/superadmin
+//Response:
+Public Content - This is the landing page of this website!
+User Level Access Content.
+Admin Level Access Content.
+Super Admin Level Access Content.

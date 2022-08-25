@@ -1,0 +1,10 @@
+Examples:
+
+User SignUp JSON:
+{
+    "name":"",
+    "email":"",
+    "phoneNumber":"",
+    "pictureURL":"",
+    "roles":["user", "admin", "superadmin"]
+}
